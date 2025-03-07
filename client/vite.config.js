@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
     root: "./src",
+    base: "/UniBot/",  // 🔹 Replace with your actual GitHub repository name
     build: {
         outDir: "../dist",
         emptyOutDir: true,
