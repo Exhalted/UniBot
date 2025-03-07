@@ -8,7 +8,7 @@
 }
 
 body {
-    @apply bg-gray-100; /* Changed background color for a softer look */
+    @apply bg-gray-100;
 }
 
 html, body {
@@ -17,17 +17,34 @@ html, body {
 
 /* Container */
 .container {
-    @apply flex w-full h-screen overflow-hidden border;
-    max-width: 100vw;
+    @apply flex w-full h-screen overflow-hidden border max-w-[100vw];
 }
 
 /* Sidebar */
 .sidebar {
-    @apply w-[320px] bg-white p-5 shadow-lg flex flex-col justify-between border; /* Increased width & added shadow for depth */
+    @apply fixed top-0 left-0 w-[320px] h-screen bg-white p-5 flex flex-col justify-between border shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:w-[320px];
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0; 
+}
+
+.sidebar.hidden {
+    display: none;
+}
+
+.close-btn {
+    @apply absolute top-5 left-5;
 }
 
 .btn {
-    @apply w-full p-3 mb-3 border rounded-md bg-gray-800 text-white text-sm text-center transition duration-300 ease-in-out hover:bg-gray-700; /* Added smooth transition */
+    @apply w-full p-3 mb-3 border rounded-md bg-gray-800 text-white text-sm text-center transition duration-300 ease-in-out hover:bg-gray-700;
 }
 
 /* Links */
@@ -36,7 +53,7 @@ html, body {
 }
 
 .links h3 {
-    @apply mb-3 text-lg font-semibold text-gray-700; /* Adjusted font size & color */
+    @apply mb-3 text-lg font-semibold text-gray-700;
 }
 
 .links li {
@@ -44,7 +61,7 @@ html, body {
 }
 
 .links a {
-    @apply flex items-center gap-2 text-gray-600 hover:text-gray-900 transition duration-300; /* Better link styling */
+    @apply flex items-center gap-2 text-gray-600 hover:text-gray-900 transition duration-300;
 }
 
 .links .link-element {
@@ -53,7 +70,7 @@ html, body {
 
 /* Calendar */
 .calendar {
-    @apply mt-6 p-4 bg-gray-50 rounded-lg shadow-md; /* Added padding, rounded corners & shadow */
+    @apply mt-6 p-4 bg-gray-50 rounded-lg shadow-md;
 }
 
 .calender-header {
@@ -69,12 +86,12 @@ html, body {
 }
 
 .days span {
-    @apply p-2 text-center rounded-md hover:bg-gray-200 transition duration-200 cursor-pointer;
+    @apply p-2 text-center rounded-md hover:bg-gray-200 transition duration-200 cursor-pointer ;
 }
 
 /* Chat Window */
 .chat-window {
-    @apply flex-1 flex flex-col bg-white shadow-lg rounded-lg overflow-hidden min-w-0 border; /* Added shadow and rounded edges */
+    @apply flex-1 flex flex-col bg-white shadow-lg rounded-lg overflow-hidden min-w-0 transition-all duration-300;
 }
 
 /* Chat Header */
@@ -86,13 +103,17 @@ html, body {
     @apply font-semibold text-lg;
 }
 
+.menu-btn {
+    @apply z-50 p-3 ;
+}
+
 .help-btn {
     @apply bg-gray-700 px-3 py-1 rounded-full cursor-pointer text-white hover:bg-gray-600 transition duration-300;
 }
 
 /* Chat Messages */
 .chat-box {
-    @apply flex-1 overflow-y-auto p-5 bg-gray-50 space-y-4; /* Added background color & spacing */
+    @apply flex-1 overflow-y-auto p-5 bg-gray-50 space-y-4;
 }
 
 /* Chat Messages Bubbles */

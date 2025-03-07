@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./toggleSidebar.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
 
         <!-- Sidebar Section -->
-        <aside class="sidebar">
-            <button class="btn">Study Office Opening hour</button>
-            <button class="btn">IRO Opening hour</button>
+        <aside class="sidebar open">
+            <button class="close-btn">
+                <i class="fa-solid fa-times text-2xl"></i> <!-- Close Icon -->
+            </button>
+
+            <div class="mt-10">
+                <button class="btn">Study Office Opening hour</button>
+                <button class="btn">IRO Opening hour</button>
+            </div>
 
             <div class="links">
                 <h3>Useful Links</h3>
@@ -59,8 +66,15 @@
         <main class="chat-window">
 
             <div class="chat-header">
-                <img class="w-[40px] " src="./images/duna-logo.png" alt="uniduna-logo">
-                <div>UniBot - a chatbot dedicated for student of UniDuna</div>
+                <!-- Hamburger Menu Button (Visible on Mobile) -->
+                <button class="menu-btn hidden">
+                    <i class="fa-solid fa-bars text-2xl"></i> <!-- FontAwesome Icon -->
+                </button>
+                <div class="flex items-center justify-center">
+                    <img class="w-[40px] h-[40px] mr-4" src="./images/duna-logo.png" alt="uniduna-logo">
+                    <span class="text-lg font-semibold sm:hidden">UniBot</span> <!-- Visible only on mobile -->
+                    <span class="text-lg font-semibold hidden sm:inline">UniBot - a chatbot dedicated for student of UniDuna</span> <!-- Visible only on larger screens -->                
+                </div>
                 <button class="help-btn">?</button>
             </div>
 
